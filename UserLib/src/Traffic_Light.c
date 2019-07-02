@@ -5,6 +5,14 @@
  * @Date:   2019/7/1
  */
 
+/* Includes----------- */
+#include "Traffic_Light.h"
+
+/* Constants----------- */
+#define A 200   //delay time in ms
+#define B 100   //delay time in ms
+
+/* Function Prototype---------- */
 /**
   * @brief  LED Configuration.
   * @param  None
@@ -36,7 +44,7 @@ void Init_Configuration(void)
   * @param  None
   * @retval None
   */
-void Segment_led(uint32_t a)
+void Segment_led(u32 a)
 {
 	uint32_t b1,c1,d1,b2,c2,d2,f;
 	if (a>=0 && a<3800)
@@ -226,7 +234,7 @@ void Segment_led(uint32_t a)
   * @param  None
   * @retval None
   */
-void translate(uint8_t a)
+void translate(u8 a)
 {
 	switch(a)
 	{
@@ -294,7 +302,7 @@ void translate(uint8_t a)
   * @param  uint32_t a,uint32_t b
   * @retval uint32_t
   */
-uint32_t circle(uint32_t a,uint32_t b)
+u32 circle(u32 a,u32 b)
 {
 	uint32_t c,d,c1,d1,c2,d2;
 	
@@ -1069,3 +1077,15 @@ void TrafficLight_Check(void)
     
     delay_nms(B);
 }//TrafficLight_Check
+
+/**
+  * @brief  Test run all the lights
+  * @param  None
+  * @retval None
+  */
+void TestRun(void)
+{
+    Init_Configuration();
+    TrafficLight_Check();
+    Init_Configuration();
+}//in the first circle, all device will be checked in order.
