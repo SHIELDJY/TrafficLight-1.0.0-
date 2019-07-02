@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\UserLib\inc -I ..\CMSIS -I ..\FWlib\inc -I ..\USER
+-I"D:\software\Tiva\ARM KEIL\ARM\RV31\INC"
+-I"D:\software\Tiva\ARM KEIL\ARM\CMSIS\Include"
+-I"D:\software\Tiva\ARM KEIL\ARM\INC\ST\STM32F10x"
+-D__UVISION_VERSION="524" -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD
+-o ..\output\main.o --omf_browse ..\output\main.crf --depend ..\output\main.d "main.c"
