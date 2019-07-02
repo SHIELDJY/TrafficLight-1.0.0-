@@ -47,7 +47,7 @@ void Init_Configuration(void)
 void Segment_led(u32 a)
 {
 	uint32_t b1,c1,d1,b2,c2,d2,f;
-	if (a>=0 && a<3800)
+	if (a<3800)
 	{
 		b1=40500-a;
 		c1=b1/10000;
@@ -306,7 +306,7 @@ u32 circle(u32 a,u32 b)
 {
 	uint32_t c,d,c1,d1,c2,d2;
 	
-	if (a>=0 && a<35000 )
+	if (a<35000 )
 	{
 		c1=(38500-a)/10000;
 		d1=(38500-a)%10000/1000;
