@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "D:\\studying files\\3.嵌入式\\课设\\Code\\TrafficLight\\TrafficLight(1.0.0)\\UserLib\\inc"
+                "D:\\studying files\\3.嵌入式\\课设\\Code\\TrafficLight\\TrafficLight(1.0.0)\\project\\USER\\inc",
+                "D:\\studying files\\3.嵌入式\\课设\\Code\\TrafficLight\\TrafficLight(1.0.0)\\fwlib_3_5_0\\inc"
             ],
             "defines": [
                 "_DEBUG",

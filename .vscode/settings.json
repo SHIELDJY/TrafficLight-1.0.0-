@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "stm32f10x_it.h": "c",
-        "system_init.h": "c"
-    }
+        "system_init.h": "c",
+        "main.h": "c",
+        "traffic_light.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }
