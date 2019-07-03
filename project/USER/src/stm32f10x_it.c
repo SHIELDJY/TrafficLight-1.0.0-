@@ -101,11 +101,12 @@ if (TIM_GetITStatus(TIM2, TIM_FLAG_Update)!=RESET)
   * @param  None
   * @retval None
   */
- #define RST_ALL_LIGHTS 0xFF
- #define ALL_YELLOW 0xFE
- #define ALL_RED 0xFD
- #define NS_RED 0xE0
- #define EW_RED 0xE1
+ #define    RST_ALL_LIGHTS   0xFF
+ #define    ALL_YELLOW       0xFE
+ #define    ALL_RED          0xFD
+ #define    NS_RED           0xE0
+ #define    EW_RED           0xE1
+uint8_t abnormal_flag;
 void USART3_IRQHandler( void )
 {   
 	uint16_t Res_Val = 0;
@@ -118,31 +119,41 @@ void USART3_IRQHandler( void )
 		case RST_ALL_LIGHTS:
 			j=0;t=0;
       flag_red = 0;
-      ESP8266_SendString("Reset All Light \n",18);
+      ESP8266_SendString("\nReset All Light \n",19);
+      ESP8266_SendString("*****Menu**** \n",16);
+	    ESP8266_SendString("Reset-->0xFF \nAll Yellow-->0xFE \nAll Red-->0xFD \nNSRed-->0xE0 \nWERed-->0xE1 \n ",79);
+      abnormal_flag = 0;
       TIM_Cmd(TIM2, ENABLE);
-      delay_nms(1000);
 			break;
     case ALL_YELLOW:
       TIM_Cmd(TIM2, DISABLE);
       AllYellow();
-      ESP8266_SendString("ALL YELLOW!! \n",15);
+      abnormal_flag = 1;
+      ESP8266_SendString("\n*******ALL YELLOW******* \n",28);
+      ESP8266_SendString("Reset-->0xFF \n",15);
       break;
     case ALL_RED:
       TIM_Cmd(TIM2, DISABLE);
       AllRed();
-      ESP8266_SendString("ALL RED!! \n",12);
+      abnormal_flag = 1;
+      ESP8266_SendString("\n*******ALL RED******* \n",25);
+      ESP8266_SendString("Reset-->0xFF \n",15);
       break;
 		case NS_RED:
       j=40201;
       h = j;
       flag_red = 1;
-      ESP8266_SendString("North Sorth Red East West Green \n",34);
+      abnormal_flag = 1;
+      ESP8266_SendString("\nNorth South Red East West Green \n",35);
+      ESP8266_SendString("Reset-->0xFF \n",15);
       break;
     case EW_RED:
       j=201;
       h = j;
       flag_red = 1;
-      ESP8266_SendString("North Sorth Green East West Red \n",34);
+      abnormal_flag = 1;
+      ESP8266_SendString("\nNorth South Green East West Red \n",35);
+      ESP8266_SendString("Reset-->0xFF \n",15);
       break;
 		default:
 			break;

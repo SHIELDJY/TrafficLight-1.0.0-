@@ -3,7 +3,8 @@
         "stm32f10x_it.h": "c",
         "system_init.h": "c",
         "main.h": "c",
-        "traffic_light.h": "c"
+        "traffic_light.h": "c",
+        "stm32f10x_tim.h": "c"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

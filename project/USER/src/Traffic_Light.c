@@ -234,8 +234,10 @@ void Segment_led(u32 a)
   * @param  None
   * @retval None
   */
+ extern uint8_t abnormal_flag;
 void translate(u8 a)
 {
+	if (abnormal_flag == 0)
 	switch(a)
 	{
 		case 0:
@@ -295,6 +297,14 @@ void translate(u8 a)
 		GPIO_SetBits(GPIOA, GPIO_Pin_7);GPIO_SetBits(GPIOA, GPIO_Pin_8);
 		GPIO_SetBits(GPIOA, GPIO_Pin_9);break;}		
 	}//end switch
+	else
+	{
+		GPIO_ResetBits(GPIOA, GPIO_Pin_3);GPIO_ResetBits(GPIOA, GPIO_Pin_4);
+		GPIO_ResetBits(GPIOA, GPIO_Pin_5);GPIO_ResetBits(GPIOA, GPIO_Pin_6);
+		GPIO_ResetBits(GPIOA, GPIO_Pin_7);GPIO_ResetBits(GPIOA, GPIO_Pin_8);
+		GPIO_ResetBits(GPIOA, GPIO_Pin_9);
+	}//end if
+	
 }//translate
 
 /**
@@ -309,7 +319,10 @@ u32 circle(u32 a,u32 b)
 	if (a<35000 )
 	{
 		if (a==1)  
-		ESP8266_SendString("SouthNorth Green \n WestEast Red",32);
+		{
+			ESP8266_SendString("---State Broadcast-----------\n",31);
+			ESP8266_SendString("SouthNorth Green \n WestEast Red",32);
+		}
 		c1=(38500-a)/10000;
 		d1=(38500-a)%10000/1000;
 		c2=(40500-a)/10000;
@@ -520,7 +533,10 @@ u32 circle(u32 a,u32 b)
 	else if (a>=38000 && a<40000)
 	{   
 		if (a==38000)  
-		ESP8266_SendString("SouthNorth Yellow\n WestEast Red",32);
+		{
+			ESP8266_SendString("---State Broadcast-----------\n",31);
+			ESP8266_SendString("SouthNorth Yellow\n WestEast Red",32);
+		}
 		c1=(40500-a)/10000;
 		d1=(40500-a)%10000/1000;
 		c2=(40500-a)/10000;
@@ -658,8 +674,11 @@ u32 circle(u32 a,u32 b)
 	}//38-40s     buzzer is sounding.  SN lights on main road yellow and on sub-road green and blink,   ,EW lights red.
 	else if (a>=40000 && a<75000)
 	{   
-		if (a==40000)  
-		ESP8266_SendString("SouthNorth Red\n WestEast Green",31);
+		if (a==40000)
+		{
+			ESP8266_SendString("---State Broadcast-----------\n",31);
+			ESP8266_SendString("SouthNorth Red\n WestEast Green",31);
+		}
 		GPIO_ResetBits(GPIOB, GPIO_Pin_7);
 		c1=(80500-a)/10000;
 		d1=(80500-a)%10000/1000;
@@ -867,8 +886,11 @@ u32 circle(u32 a,u32 b)
 	}
 	else if (a>=78000 && a<80000)
 	{
-		if (a==78000)     
-		ESP8266_SendString("SouthNorth Red\n WestEast Yellow",32);
+		if (a==78000)  
+		{
+			ESP8266_SendString("SouthNorth Red\n WestEast Green",31);
+			ESP8266_SendString("SouthNorth Red\n WestEast Yellow",32);
+		}   
 		c1=(80500-a)/10000;
 		d1=(80500-a)%10000/1000;
 		c2=(80500-a)/10000;

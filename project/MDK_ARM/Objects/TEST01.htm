@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\TEST01.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\TEST01.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Jul 03 12:49:37 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Jul 03 15:28:37 2019
 <BR><P>
 <H3>Maximum Stack Usage =        100 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -768,14 +768,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestRun
 </UL>
 
-<P><STRONG><a name="[34]"></a>USART3_IRQHandler</STRONG> (Thumb, 200 bytes, Stack size 8 bytes, stm32f10x_it.o(i.USART3_IRQHandler))
+<P><STRONG><a name="[34]"></a>USART3_IRQHandler</STRONG> (Thumb, 268 bytes, Stack size 8 bytes, stm32f10x_it.o(i.USART3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USART3_IRQHandler &rArr; ESP8266_SendString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearITPendingBit
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllYellow
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllRed
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_nms
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendString
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ReceiveValue
 </UL>
@@ -817,7 +816,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendString
 </UL>
 
-<P><STRONG><a name="[76]"></a>circle</STRONG> (Thumb, 3968 bytes, Stack size 40 bytes, traffic_light.o(i.circle))
+<P><STRONG><a name="[76]"></a>circle</STRONG> (Thumb, 4040 bytes, Stack size 40 bytes, traffic_light.o(i.circle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = circle &rArr; ESP8266_SendString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;translate
@@ -834,7 +833,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_nus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TrafficLight_Check
-<LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IRQHandler
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
 </UL>
 
@@ -856,7 +854,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[80]"></a>translate</STRONG> (Thumb, 718 bytes, Stack size 8 bytes, traffic_light.o(i.translate))
+<P><STRONG><a name="[80]"></a>translate</STRONG> (Thumb, 788 bytes, Stack size 8 bytes, traffic_light.o(i.translate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = translate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
